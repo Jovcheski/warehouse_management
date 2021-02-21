@@ -1,0 +1,25 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+   <label class="display-2" style="text-align: justify">
+       You have successfully signed up,
+       but you must wait for the Administrator to approve your account. You'll get report on your email.
+       <br><br>Thank you for your understanding.
+   </label><br><br>
+   <div style="text-align: center">
+ <a  href="{% url 'login_whm:user_login' %}">
+ <button type="button" class="btn btn-primary btn-lg">BACK</button></a></div>
+  </body>
+</html>
+

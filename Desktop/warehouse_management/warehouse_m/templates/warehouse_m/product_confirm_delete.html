@@ -1,0 +1,16 @@
+{% extends 'warehouse_m/base.html' %}
+{% block title %}Delete{% endblock %}
+{% block content %}
+    <form method="post">
+      {% csrf_token %}
+    <table class="table table-hover">
+        <tr><td align="center"><h3>DELETE:</h3></td><td align="center">{{ product.category }}</td><td align="center">{{ product.code }}</td><td align="center">{{ product.product }}</td></tr>
+        <tr>
+            <td colspan="4" align="center">
+                <input class="btn btn-danger" type="submit" value="DELETE">
+                <a class="btn btn-warning" href="{% url 'warehouse_m:search_index' %}">CANCEL</a>
+            </td>
+        </tr>
+    </table>
+      </form>
+{% endblock %}

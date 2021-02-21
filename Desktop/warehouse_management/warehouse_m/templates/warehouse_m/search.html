@@ -1,0 +1,44 @@
+{% extends 'warehouse_m/base.html' %}
+{% load mathfilters %}
+{% block title %}Results{% endblock %}
+{% block content %}
+    <table class="table table-striped">
+    <thead>
+    <th>CATEGORY</th>
+    <th>MANUFACTURER</th>
+    <th>CODE</th>
+    <th>PRODUCT</th>
+    <th>PRICE</th>
+    <th>WARRANTY</th>
+    <th>IMAGE</th>
+    <th></th><th></th>
+    </thead>
+    {% for res in result %}
+        {% if forloop.counter0|divisibleby:2 %}
+            <tr class="table-striped">
+                <td>{{ res.category }}</td>
+                <td>{{ res.manufacturer }}</td>
+                <td>{{ res.code }}</td>
+                <td>{{ res.product }}</td>
+                 <td>{{ res.price|div:52.6|floatformat:2 }}$</td>
+                <td>{{ res.warranty }}</td>
+                 <td>{{ res.image }}</td>
+                <td><a class="btn btn-warning" href="{% url 'warehouse_m:update' pk=res.pk %}">Update</a></td>
+                <td><a class="btn btn-danger" href="{% url 'warehouse_m:delete' pk=res.pk %}">Delete</a></td>
+            </tr>
+        {% else %}
+             <tr class="table-striped">
+                <td>{{ res.category }}</td>
+                <td>{{ res.manufacturer }}</td>
+                <td>{{ res.code }}</td>
+                <td>{{ res.product }}</td>
+                 <td>{{ res.price|div:52.6|floatformat:2 }}$</td>
+                <td>{{ res.warranty }}</td>
+                  <td>{{ res.image }}</td>
+                <td><a class="btn btn-warning" href="{% url 'warehouse_m:update' pk=res.pk %}">Update</a></td>
+                <td><a class="btn btn-danger" href="{% url 'warehouse_m:delete' pk=res.pk %}">Delete</a></td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+    </table>
+{% endblock %}
